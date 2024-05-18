@@ -134,20 +134,20 @@ TARGET_KERNEL_CONFIG := \
 # Kernel modules
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
-ifeq ($(TARGET_DEVICE),aston)
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/../aston/modules.load))
+ifeq ($(TARGET_DEVICE),xigua)
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/../xigua/modules.load))
 else
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
 endif
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
-ifeq ($(TARGET_DEVICE),aston)
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/../aston/modules.load.recovery))
+ifeq ($(TARGET_DEVICE),xigua)
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/../xigua/modules.load.recovery))
 else
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 endif
-ifeq ($(TARGET_DEVICE),aston)
-BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/../aston/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
+ifeq ($(TARGET_DEVICE),xigua)
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/../xigua/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 else
 BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
 endif
